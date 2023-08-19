@@ -44,7 +44,8 @@ public class FootballerDAOImpl implements FootballerDAO {
     }
 
     @Override
-    public void updated(Footballer footballer) {
+    @Transactional
+    public void update(Footballer footballer) {
         entityManager.merge(footballer);
     }
 }

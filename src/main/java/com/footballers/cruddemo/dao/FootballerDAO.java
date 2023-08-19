@@ -11,5 +11,5 @@ public interface FootballerDAO {
     Footballer findById(int id);
     List<Footballer> findAll();
     List<Footballer> findByLastName(String lastName);
-    void updated(Footballer footballer);
+    void update(Footballer footballer);
 }

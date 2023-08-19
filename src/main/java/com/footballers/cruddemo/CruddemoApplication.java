@@ -24,7 +24,25 @@ public class CruddemoApplication {
 //			readFootballer(footballerDAO);
 //			readAllFootballes(footballerDAO);
 //			readFootballerByLastName(footballerDAO);
+			updateFootballer(footballerDAO);
 		};
+	}
+
+	private void updateFootballer(FootballerDAO footballerDAO) {
+		// create footballer by id
+		int id = 3;
+		Footballer footballer = footballerDAO.findById(id);
+		System.out.println("Footballer to update: " + footballer);
+
+		// change last name
+		footballer.setLastName("Evra");
+
+		// update
+		footballerDAO.update(footballer);
+
+		// show updated footballer
+		System.out.println("Updated footballer: " + footballerDAO.findById(id));
+
 	}
 
 	private void readFootballerByLastName(FootballerDAO footballerDAO) {
