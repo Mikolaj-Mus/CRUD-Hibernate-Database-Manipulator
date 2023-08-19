@@ -12,4 +12,6 @@ public interface FootballerDAO {
     List<Footballer> findAll();
     List<Footballer> findByLastName(String lastName);
     void update(Footballer footballer);
+    void delete(int id);
+    int deleteAll();
 }

@@ -24,8 +24,22 @@ public class CruddemoApplication {
 //			readFootballer(footballerDAO);
 //			readAllFootballes(footballerDAO);
 //			readFootballerByLastName(footballerDAO);
-			updateFootballer(footballerDAO);
+//			updateFootballer(footballerDAO);
+//			deleteFootballer(footballerDAO);
+			deleteAllFootballers(footballerDAO);
 		};
+	}
+
+	private void deleteAllFootballers(FootballerDAO footballerDAO) {
+		System.out.println("Deleting all footballers ...");
+		int footballersDeleted = footballerDAO.deleteAll();
+		System.out.println(footballersDeleted + " footballers was deleted from table");
+	}
+
+	private void deleteFootballer(FootballerDAO footballerDAO) {
+		int id = 1;
+		System.out.println("Delete footballer id: " + id);
+		footballerDAO.delete(id);
 	}
 
 	private void updateFootballer(FootballerDAO footballerDAO) {

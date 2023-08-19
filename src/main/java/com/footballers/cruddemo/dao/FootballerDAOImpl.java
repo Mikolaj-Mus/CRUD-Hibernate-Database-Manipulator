@@ -48,4 +48,18 @@ public class FootballerDAOImpl implements FootballerDAO {
     public void update(Footballer footballer) {
         entityManager.merge(footballer);
     }
+
+    @Override
+    @Transactional
+    public void delete(int id) {
+        Footballer footballer = entityManager.find(Footballer.class, id);
+        entityManager.remove(footballer);
+    }
+
+    @Override
+    @Transactional
+    public int deleteAll() {
+        int rows = entityManager.createQuery("DELETE FROM Footballer").executeUpdate();
+        return rows;
+    }
 }
