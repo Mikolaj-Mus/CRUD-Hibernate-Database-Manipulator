@@ -35,4 +35,16 @@ public class FootballerDAOImpl implements FootballerDAO {
         TypedQuery<Footballer> query = entityManager.createQuery("FROM Footballer", Footballer.class);
         return query.getResultList();
     }
+
+    @Override
+    public List<Footballer> findByLastName(String lastName) {
+        TypedQuery<Footballer> query = entityManager.createQuery("FROM Footballer WHERE lastName=:data", Footballer.class);
+        query.setParameter("data", lastName);
+        return query.getResultList();
+    }
+
+    @Override
+    public void updated(Footballer footballer) {
+        entityManager.merge(footballer);
+    }
 }

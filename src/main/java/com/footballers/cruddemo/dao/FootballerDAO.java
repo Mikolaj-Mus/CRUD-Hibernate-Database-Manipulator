@@ -10,4 +10,6 @@ public interface FootballerDAO {
     void save(Footballer footballer);
     Footballer findById(int id);
     List<Footballer> findAll();
+    List<Footballer> findByLastName(String lastName);
+    void updated(Footballer footballer);
 }

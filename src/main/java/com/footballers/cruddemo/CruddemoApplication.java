@@ -22,8 +22,18 @@ public class CruddemoApplication {
 		return runner -> {
 //			createFootballer(footballerDAO);
 //			readFootballer(footballerDAO);
-			readAllFootballes(footballerDAO);
+//			readAllFootballes(footballerDAO);
+//			readFootballerByLastName(footballerDAO);
 		};
+	}
+
+	private void readFootballerByLastName(FootballerDAO footballerDAO) {
+
+		List<Footballer> theFootballers = footballerDAO.findByLastName("Camavinga");
+
+		for (Footballer footballer : theFootballers) {
+			System.out.println(footballer);
+		}
 	}
 
 	private void readAllFootballes(FootballerDAO footballerDAO) {
@@ -50,7 +60,7 @@ public class CruddemoApplication {
 	private void createFootballer(FootballerDAO footballerDAO) {
 
 		System.out.println("Create new footballer and save to table ...");
-		Footballer footballer = new Footballer("Eduardo", "Camavinga", "Midfielder");
+		Footballer footballer = new Footballer("Patrick", "Vieira", "Midfielder");
 		footballerDAO.save(footballer);
 		System.out.println("Footballer has been created ...");
 	}
